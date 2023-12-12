@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +14,6 @@ export class AppComponent implements OnInit {
   rook: boolean = false;
   knight: boolean = false;
   activeButton: string | null = null;
-
-  constructor(private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.boardSetup();
@@ -46,7 +43,6 @@ export class AppComponent implements OnInit {
     this.rook = false;
     this.knight = false;
     this.activeButton = null;
-    this.toastr.success('Board reset successfully');
   }
 
   possibleMoves(block: { row: number; column: number; color: string }) {
