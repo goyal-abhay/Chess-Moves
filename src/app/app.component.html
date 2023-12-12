@@ -1,0 +1,41 @@
+<div class="flex">
+  <button id="reset" (click)="resetBoard()">Reset</button>
+</div>
+
+<div class="flex flex-buttons">
+  <button
+    (click)="handleButtonClick('Bishop')"
+    [class.active]="activeButton === 'Bishop'"
+  >
+    Bishop
+  </button>
+  <button
+    (click)="handleButtonClick('Rook')"
+    [class.active]="activeButton === 'Rook'"
+  >
+    Rook
+  </button>
+  <button
+    (click)="handleButtonClick('Knight')"
+    [class.active]="activeButton === 'Knight'"
+  >
+    Knight
+  </button>
+  <button
+    (click)="handleButtonClick('Queen')"
+    [class.active]="activeButton === 'Queen'"
+  >
+    Queen
+  </button>
+</div>
+
+<div class="container">
+  <div *ngFor="let row of allBlocks" class="row">
+    <div
+      *ngFor="let block of row"
+      class="eachBlock"
+      [ngStyle]="{ 'background-color': block.color, border: '1px solid #000' }"
+      (click)="possibleMoves(block)"
+    ></div>
+  </div>
+</div>
